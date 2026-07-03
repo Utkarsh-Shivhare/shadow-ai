@@ -1,106 +1,124 @@
 # Shadow AI Discovery Engine
 
-> A lightweight discovery platform that identifies "Shadow AI" agents running in Google Cloud Platform infrastructure.
+A discovery platform that identifies AI agents running in Google Cloud Platform.
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![Mode](https://img.shields.io/badge/mode-mock%20%2B%20real-blue.svg)]()
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)]()
+## What This Does
 
-## 🎯 Live Demo
+Scans GCP projects to find "Shadow AI" workloads - AI services that might be running without proper oversight. Detects Cloud Run, Cloud Functions, GKE, and Vertex AI resources that use AI frameworks like LangChain, LlamaIndex, CrewAI, etc.
 
-**The application is currently running!**
+## Screenshots
 
-- **Frontend:** http://localhost:5173
-- **Backend API:** http://localhost:8000
-- **API Docs:** http://localhost:8000/docs
-
-## 📸 Screenshots
-
-See the `screenshots/` folder for examples of:
-- Dashboard with statistics
-- Assets view with filtering
+Check the `screenshots/` folder for:
+- Dashboard with stats
+- Assets view
 - Agents table with confidence scores
 - Detailed agent analysis
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
-# Clone and enter directory
-cd shadow_ai
-
-# Run everything (backend + frontend)
+# Run everything
 ./start.sh
 ```
 
-Or see **[QUICKSTART.md](./QUICKSTART.md)** for detailed setup instructions.
+Then open http://localhost:5173
 
-## 📚 Documentation
+## Documentation
 
-This repository contains comprehensive documentation:
+- **[QUICKSTART.md](./QUICKSTART.md)** - Setup instructions
+- **[ARCHITECTURE.md](./ARCHITECTURE.md)** - System design and decisions
+- **[GCP_SETUP_FREE.md](./GCP_SETUP_FREE.md)** - GCP configuration (optional)
 
-### 1. **[QUICKSTART.md](./QUICKSTART.md)** - Get Running in 5 Minutes
-Quick installation and setup guide
 
-### 2. **[ARCHITECTURE.md](./ARCHITECTURE.md)** - System Design
-Complete technical architecture, design decisions, scaling strategy
+## Project Overview
 
-### 3. **[GCP_SETUP_FREE.md](./GCP_SETUP_FREE.md)** - Zero-Cost GCP Setup
-Mock mode (no GCP) or Real GCP (free tier) - both options explained
+### What It Does
+Scans GCP projects to find AI workloads by looking for:
+- AI framework usage (LangChain, LlamaIndex, CrewAI, AutoGen)
+- LLM API keys (OpenAI, Anthropic, Cohere, etc.)
+- Vertex AI integration
+- AI-related labels and configurations
 
-### 4. **[CHECKLIST.md](./CHECKLIST.md)** - Development Progress
-Track implementation progress phase by phase
-
-## 🎯 Quick Understanding
-
-### What This Project Does
-Scans Google Cloud projects to find "Shadow AI Agents" - AI workloads that might be running without proper oversight.
-
-### Key Features
-- ☁️ Discovers Cloud Run, Cloud Functions, GKE, Vertex AI resources
-- 🤖 Detects AI frameworks (LangChain, LlamaIndex, CrewAI, etc.)
-- 🎯 Assigns confidence scores (0-100) with reasoning
-- 📊 REST API for programmatic access
-- 🖥️ Simple web dashboard
-- 🗄️ SQLite database (no setup needed)
+### How It Works
+1. Connects to GCP using service account
+2. Scans Cloud Run, Functions, GKE, Vertex AI
+3. Analyzes environment variables, labels, dependencies
+4. Calculates confidence score (0-100) with reasoning
+5. Assesses security risks
+6. Displays results in web dashboard
 
 ### Tech Stack
-**Backend**: Python + FastAPI + SQLAlchemy + GCP SDK  
-**Frontend**: React + Vite + TailwindCSS  
-**Database**: SQLite  
-**Cloud**: Google Cloud Platform (or mock mode)
+- **Backend:** Python, FastAPI, SQLAlchemy
+- **Frontend:** React, Vite, TailwindCSS
+- **Database:** SQLite
+- **Cloud:** GCP (with mock mode option)
 
-## 🚀 Getting Started
+## Setup
 
-### Option 1: Mock Mode (No GCP Account - Fastest)
-Perfect for building the entire solution without any GCP setup.
+### Prerequisites
+- Python 3.9+
+- Node.js 18+
+- (Optional) GCP account
 
-```bash
-# 1. Set mock mode
-echo "USE_MOCK_GCP=true" > .env
-
-# 2. Install dependencies (we'll do this next)
-# pip install -r requirements.txt
-
-# 3. Run the backend
-# python backend/main.py
-
-# 4. Open browser and test!
-```
-
-### Option 2: Real GCP (Free Tier)
-Use actual GCP with $300 free credit (no charges).
+### Install
 
 ```bash
-# 1. Follow GCP_SETUP_FREE.md (Option 1)
-# 2. Download service account JSON key
-# 3. Set environment variable
+# Backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r backend/requirements.txt
 
-export GOOGLE_APPLICATION_CREDENTIALS="./credentials/gcp-service-account.json"
-export GCP_PROJECT_ID="your-project-id"
-
-# 4. Run the backend
-# python backend/main.py
+# Frontend
+cd frontend
+npm install
+cd ..
 ```
+
+### Run
+
+```bash
+# Start both servers
+./start.sh
+
+# Or manually:
+# Terminal 1: python -m backend.main
+# Terminal 2: cd frontend && npm run dev
+```
+
+Access at http://localhost:5173
+
+## Features
+
+### Resource Discovery
+- Cloud Run services
+- Cloud Functions
+- GKE workloads  
+- Vertex AI endpoints
+
+### AI Detection
+Uses multiple heuristics:
+- Environment variable scanning
+- Label detection
+- Dependency analysis
+- Service account permissions
+- API usage patterns
+
+### Confidence Scoring
+Weighted algorithm:
+- LLM API Keys: +30 points
+- AI Frameworks: +25 points
+- Vertex AI: +25 points
+- Labels: +15 points
+- Libraries: +10 points each
+- Config variables: +5 points each
+
+### Risk Assessment
+Factors considered:
+- External LLM usage
+- Public endpoints
+- Privileged service accounts
+- Logging status
+- Stack complexity
 
 ## 📋 Next Steps
 
