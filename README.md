@@ -534,8 +534,4 @@ MIT License - Feel free to use for learning purposes
 7. Easy to run and evaluate
 8. Production considerations addressed
 
-Thank you for reviewing! Questions? Check the documentation or examine the code. Everything is implemented and working. 🚀
-
----
-
-**Built with ☁️ for Shadow AI Discovery**
+Thank you for reviewing! Questions? Check the documentation or examine the code.
