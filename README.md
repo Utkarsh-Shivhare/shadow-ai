@@ -120,53 +120,6 @@ Factors considered:
 - Logging status
 - Stack complexity
 
-## 📋 Next Steps
-
-### Phase 1: Set Up Your Approach
-1. Read **GCP_SETUP_FREE.md**
-2. Decide: Mock mode or Real GCP?
-3. If Real GCP: Create account, enable APIs, create service account
-4. If Mock mode: Just set `USE_MOCK_GCP=true`
-
-### Phase 2: Build Backend
-1. Create project structure
-2. Set up FastAPI
-3. Build GCP scanner
-4. Implement AI detection
-5. Create REST API endpoints
-
-### Phase 3: Build Frontend
-1. Set up React project
-2. Create Assets view
-3. Create Agents view
-4. Create Agent details page
-
-### Phase 4: Polish & Document
-1. Add README with setup instructions
-2. Take screenshots
-3. Test all endpoints
-4. Write architecture rationale
-
-## 💡 Key Points for Your Assessment
-
-### What They Care About (60% of grade)
-1. ⭐ **System Design (25%)** - How you structure the solution
-2. ⭐ **Cloud Knowledge (20%)** - Understanding GCP APIs and resources
-3. ⭐ **Architecture Decisions (15%)** - Why you made certain choices
-
-### What They Don't Care About
-- Perfect UI design
-- 100% feature completion
-- Production-ready code
-- Fancy animations
-
-### Time Budget: 8-12 hours
-- Backend API: 4 hours
-- Scanning logic: 2 hours
-- Frontend: 3 hours
-- Documentation: 2 hours
-- **Buffer: 1 hour**
-
 ## 🔍 How It Works
 
 ```
@@ -239,64 +192,6 @@ shadow_ai/
 ├── .env                             # ✅ Configuration
 ├── .gitignore                       # ✅ Git ignore rules
 └── shadow_ai.db                     # ✅ SQLite database (auto-created)
-```
-
-## 💰 Cost: $0
-
-### Why It's Free
-- GCP Free Tier: $300 credit (for 90 days)
-- API calls for listing resources: FREE
-- Mock mode option: No GCP needed at all
-- Local development: No hosting costs
-- SQLite: No database server needed
-
-## 🤔 Common Questions
-
-### Do I need a GCP account?
-**No!** You can use mock mode and complete the entire assessment.
-
-### Will I be charged?
-**No!** Even with real GCP, the API calls are free and minimal.
-
-### What if I don't know GCP well?
-**No problem!** The mock mode includes realistic sample data.
-
-### Can I use the mock mode for the assessment?
-**Yes!** Just mention in your README that it supports both modes.
-
-### How do I show this works without GCP?
-Use mock mode and include screenshots. Evaluators understand.
-
-## 📝 My Recommendation
-
-1. **Start with mock mode** (0 setup time)
-2. **Build everything** (8 hours)
-3. **Before submission**: Create GCP account if you want (optional)
-4. **Test with real GCP** (optional, 30 min)
-5. **Take screenshots** from both modes
-6. **Submit with confidence!**
-
-## 🎯 Success Criteria
-
-Your submission is great if:
-- ✅ It scans at least 2 resource types (Cloud Run, Functions)
-- ✅ It detects AI patterns with confidence scores
-- ✅ It has a working REST API
-- ✅ It has a basic UI
-- ✅ ARCHITECTURE.md explains your decisions
-- ✅ README has clear setup instructions
-
-## 📬 What to Submit
-
-```
-GitHub Repository containing:
-✅ Source code
-✅ README.md (setup instructions)
-✅ ARCHITECTURE.md (this will be your architecture doc)
-✅ Screenshots folder
-✅ .env.example (template)
-✅ requirements.txt
-✅ Sample API responses (JSON files)
 ```
 
 ## 🎨 Features Implemented
