@@ -465,73 +465,34 @@ curl http://localhost:8000/stats | jq
 - **Heuristics vs ML:** Heuristics for explainability
 - **In-memory vs Redis:** In-memory for fewer dependencies
 
-## 🚀 Future Enhancements
+## Future Work
 
-### Bonus Features (Not Implemented)
-- [ ] Cloud Logging integration
-- [ ] Relationship visualization (graph view)
-- [ ] Container image analysis
-- [ ] Incremental scanning
+Possible improvements:
+- Cloud Logging integration
+- Relationship visualization
+- Container image analysis
+- Multi-cloud support (AWS, Azure)
+- ML-based detection
 
-### Other Ideas
-- [ ] Multi-cloud support (AWS, Azure)
-- [ ] Slack/email notifications
-- [ ] Policy enforcement
-- [ ] Compliance reporting
-- [ ] ML-based detection model
+## Lessons Learned
 
-## 💡 Key Takeaways
+- Mock mode enabled faster development
+- Weighted scoring more useful than binary detection
+- FastAPI auto-documentation saves time
+- SQLite perfect for PoC/demo
 
-**What Worked Well:**
-- Mock mode allowed complete development without GCP
-- Weighted scoring provides nuanced detection
-- FastAPI made API development fast and documented
-- TailwindCSS enabled professional UI quickly
+Trade-offs:
+- Sync scanning (simplicity over performance)
+- SQLite (ease of setup over scalability)
+- Heuristics (explainability over accuracy)
 
-**What I'd Change in Production:**
-- Switch to PostgreSQL for scalability
-- Add async workers for parallel scanning
-- Implement caching layer (Redis)
-- Add comprehensive test suite
-- Set up CI/CD pipeline
+## Notes
 
-## 🤝 Contributing
+Time spent: ~10-12 hours
 
-This is an assessment project, but the architecture is designed to be:
-- **Extensible:** Easy to add new cloud providers
-- **Testable:** Clear separation of concerns
-- **Documented:** Comprehensive architecture docs
-- **Production-ready:** With the changes outlined above
-
-## 📝 License
-
-MIT License - Feel free to use for learning purposes
-
----
-
-## 🎯 Assessment Notes
-
-**Time Spent:** ~10-12 hours
-- Backend: 5 hours
-- Frontend: 3 hours
-- Documentation: 2 hours
-- Testing & Polish: 2 hours
-
-**Focus Areas:**
-- System architecture and design decisions (ARCHITECTURE.md)
-- Cloud resource discovery patterns
-- AI detection heuristics with reasoning
+This project demonstrates:
+- System architecture and design decisions
+- Cloud resource discovery
+- AI detection with explainable scoring
 - Clean, maintainable code
-- Comprehensive documentation
-
-**What Makes This Submission Strong:**
-1. Complete working implementation
-2. Both mock and real GCP support
-3. Detailed confidence scoring with reasoning
-4. Risk assessment beyond basic detection
-5. Professional UI with good UX
-6. Comprehensive architecture documentation
-7. Easy to run and evaluate
-8. Production considerations addressed
-
-Thank you for reviewing! Questions? Check the documentation or examine the code.
+- Full documentation
